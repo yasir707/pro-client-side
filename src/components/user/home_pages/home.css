@@ -1,0 +1,491 @@
+
+.navbarContainer{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+    background: #26A5B9;
+    }
+    .logo{
+    position: absolute;
+    width: 18%;
+    height: 60px;
+    left: 50px;
+    top: 20px;
+    /* background-color: blue; */
+    }
+    /* .searches{
+        width:41%;
+        height: 40px;
+        background-color: blueviolet;
+    } */
+    .search1{
+    position: absolute;
+    width: 20%;
+    height: 40px;
+    left: 24%;
+    top: 30px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    }
+    input::placeholder{
+    position: absolute;
+    width: 43px;
+    height: 16px;
+    left: 14px;
+    top: 11px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.45);
+    }
+    .searchLogoDiv{
+    position: absolute;
+    width: 3%;
+    height: 40px;
+    left: 42%;
+    top: 30px;
+    background: #B5EFF0;
+    border-radius: 5px;
+    }
+    .searchLogo1{
+    position: absolute;
+    left: 31.99%;
+    right: 55.62%;
+    top: 25.28%;
+    bottom: 98.07%;
+    }
+    .search2{
+    position: absolute;
+    width: 20%;
+    height: 40px;
+    left: 46%;
+    top: 30px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    }
+   
+    .locationLogo{
+    position: absolute;
+    left: 46.4%;
+    right: 4.37%;
+    top: 3.8%;
+    bottom: 4.38%;
+    }
+    .searchLogoDiv2{
+        position: absolute;
+        width: 3.5%;
+        height: 40px;
+        left: 63%;
+        top: 30px;
+        background: #B5EFF0;
+        border-radius: 5px;
+    }
+    .thirdPortion{
+        position: absolute;
+        width: 325px;
+        height: 40px;
+        left: 1060px;
+        top: 30px;
+        /* background-color: aqua; */
+    }
+    .messageLogo{
+        position: absolute;
+        left: 75.17%;
+        right: 10.83%;
+        top: 3.5%;
+        bottom: 11.67%;
+    }
+    .shoppingLogo{
+        position: absolute;
+        left: 79.17%;
+        right: 10.83%;
+        top: 3.5%;
+        bottom: 11.67%;
+    }
+    .peopleLogo{
+        position: absolute;
+        left: 83.17%;
+        right: 10.83%;
+        top: 3.5%;
+        bottom: 11.67%;
+    }
+    .sell{
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        left: 1320px;
+        top: 35px;
+        background: #FFFFFF;
+        border-radius: 5px;
+    }
+    .pMargin{
+        margin-top: 13px;
+    }
+    .secondContainer{
+        position: absolute;
+        width: 1440px;
+        height: 50px;
+        left: 0px;
+        top: 115px;
+        background: #B5EFF0;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .homeBannerImage{
+        max-width: 100%;
+        height: 275px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    .recentProductsDiv{
+        clip-path: polygon(x1 y1,x2 y2,x3 y3,x4 y4);
+    }
+    .recentProductsDiv{
+        width: 20%;
+        height:40px;
+        float: left;
+        background-color:#26A5B9;
+        clip-path: polygon(x1 y1,x2 y2,x3 y3,x4 y4);
+        clip-path: polygon(0 0, 81% 0, 100% 100%,0% 100%);
+    }
+    .recentProductsText{
+        width:90%;
+        height:200px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        margin-left: 15px;
+        margin-top: 4px;
+        color: #FFFFFF;
+    }
+    .line1{
+        border:4px solid  #26A5B9;
+        /* background-color:#26A5B9; */
+        width: 99%;
+        margin-left: 1%;
+
+    }
+  
+    .Card{
+        width: 25%;
+        height: 100%;
+        float: left;
+        box-sizing: border-box;
+        
+        background-color: brown;
+    }
+   
+    .priceHeartDiv{
+        width: 80%;
+        height: 15%;
+        float: left;
+        /* background-color: chartreuse; */
+
+    }
+    .priceHeart{
+        width: 40%;
+        height: 50%;
+        float: left;
+        margin-top: 15px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        color: #000000;         
+        /* background-color: burlywood; */
+    }
+    .imgheartDiv{
+        width: 10%;
+        height: 50%;
+        float: left;
+        margin-top: 15px;
+        /* background-color: burlywood; */
+    }
+    .dim1{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.25);
+    }
+
+    .marginClass{
+        margin-top: 20px;
+    }
+    .newProduct1{
+        width: 26%;
+        height: 100%;
+        float: left;
+        /* background-color: burlywood; */
+        margin-left: 2%;
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+    }
+    .newProduct1ImgDiv{
+        width: 100%;
+        height: 60%;
+        float: left;
+        /* background-color: chartreuse; */
+    }
+    .newProduct1Img{
+        width: 80%;
+        float: left;
+    }
+    .newProductTitle1{
+        width: 100%;
+        height: 10%;
+        /* background-color: darkgreen; */
+    }
+    .newProductPriceDiv{
+        width: 100%;
+        height: 10%;
+        /* background-color:darkolivegreen; */
+    }
+    .dim2{
+        width:100%;
+        height: 10%;
+        /* background-color: cyan; */
+    }
+    .footer{
+        width: 100%;
+        height: 298px;
+        /* background: #26A5B9; */
+        margin-top:45px;
+        /* margin-left: 200px; */
+    }
+    .footer1{
+        width: 25%;
+        height: 100%;
+        float: left;
+        margin-left: 200px;
+        /* background-color: chartreuse; */
+    }
+    .footer1Follow{
+        width:100%;
+        height: 30%;
+        float: left;
+        color:white;
+        /* background-color: darkorange; */
+    }
+    .footer1Description{
+        width: 100%;
+        height: 70%;
+        float:left;
+        /* background-color:#26A5B9; */
+        
+    }
+    .footerDescriptionInside{
+        width: 90%;
+        height:20%;
+        float:left;
+        color:white;
+
+        /* background-color: darksalmon; */
+        margin-top:10px;
+    }
+    .h2Follow{
+        width: 70%;
+        height: 50%;
+        float: left;
+        margin-left:65px;
+        /* background-color: darkorchid; */
+    }
+    .iconImgDiv{
+        width: 30%;
+        height: 80%;
+        float: left;
+        /* background-color: darkkhaki; */
+    }
+    .iconImg{
+        width: 30%;
+        float: left;
+    }
+    .iconImgText{
+        width: 70%;
+        height: 80%;
+        float: left;
+        /* background-color: darkslateblue; */
+    }
+    .footer2{
+        width: 25%;
+        height: 100%;
+        float: left;
+        /* background-color:chocolate; */
+    } 
+    .footer3{
+        width: 25%;
+        height: 100%;
+        float: left;
+        /* background-color:darkblue; */
+    }
+
+
+ .place1::placeholder{
+    margin-top: -2px;
+ }
+    .place::placeholder{
+/* background-color: red; */
+margin-left: 6%;
+margin-top: -2px;
+    }
+  .navbar-nav{
+    /* background-color: yellow; */
+  }
+    
+
+    .nav-item{
+        padding-left:30px;
+       
+    }
+    .nav-link{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 19px;
+        
+        
+        color: #26A5B9;
+    }
+
+
+    .dropdown-text{
+        font-family: Source Sans Pro !important;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+    }.dropdown {
+      position: relative;
+      display: inline-block;
+      /* background: linear-gradient(#111, #111) padding-box,linear-gradient(45deg,#11FE01, #09009F, #00FF95)border-box; */
+        border-radius: 50em;
+        border: 4px solid transparent
+    }.dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #F1F1F1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {background-color: #ddd;}
+    .dropdown:hover .dropdown-content {display: block;}
+    .menu-navebarr{
+      display: none;
+    }
+
+
+    
+  .linkClassModification{
+    background-color: red;
+  }
+
+   .product-link {
+    text-decoration: none;
+    color: black;
+  }
+  .productModif{
+        margin-bottom: 20px;
+        display: block;
+      
+  }
+
+  .cardTransform{
+    /* border: 5px solid black; */
+    transition: 0.3s;
+  }
+  .cardTransform:hover{
+    transform: scale(1.05);
+  }
+
+  .loader{
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background:transparent;
+    border: 10px solid #26A5B9;
+    border-top: 10px solid #B5EFF0;
+    animation: loader 2s linear infinite;
+    margin-top: 200px;
+    margin-left: 600px;
+    margin-top: 250px;
+    /* background-color: white; */
+  }
+  @keyframes loader{
+    0%{
+    transform: rotate(0deg);
+    }
+    100%{
+    transform:rotate(360deg);
+    }
+  }
+
+  .progressBarContainer{
+    height:15px;
+    background-color: black;
+  }
+  .progressBar{
+    height:100%;
+    background-color:   #26A5B9;
+    animation: progress-animation 5s forwards;
+  }
+  @keyframes progress-animation{
+    0%{
+        width:0%
+    }
+    100%{
+        width:100%
+    }
+  }
+ 
+
+   
+   
+
+    @media screen and (max-width:1075px) {
+      
+        .nav-item{
+            padding:0;
+        }
+       
+      
+
+       
+
+        @media screen and (max-width:991px){
+            .navbar-nav{
+                text-align: left;
+            }
+          
+           
+        }
+
+
+    }
+
+
+    @media screen and (max-width: 1075px) {
+        .navbar-navCustom{
+            flex-direction: row;
+        }
+      }
+
+      
+      
+
+ 
