@@ -53,7 +53,7 @@ if (!product) {
 
 async function relatedProductsFunction(){
   try{
-  const responseRelates = await fetch(`https://theroyalblue.pk:5010/api/Product/get-Product-related-items/${categoryId}` , {
+  const responseRelates = await fetch(`` , {
     method : "GET" ,
     header : {
       accept : '*/*',
@@ -320,15 +320,14 @@ async function relatedProductsFunction(){
 
       
 <div className='container ' style={{position:"relative",top:"200px"}}>
-          <div className='row '>
+          {/* <div className='row '>
             <div className='col-lg-12 col-md-12 col-sm-12 col-xxl-12'>
               <div className='adminDashboardSecondPatti' style={{ width: "", marginLeft: "", backgroundColor: "white" }}>
                 <div className='adminDashboardSecondPattiIn' style={{ width: "20%" }}>
-                  {/* <p>Related Products</p> */}
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         
        

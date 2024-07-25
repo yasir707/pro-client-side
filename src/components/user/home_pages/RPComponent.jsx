@@ -60,7 +60,7 @@ const RPComponent = (props) => {
         try{
             const color = document.getElementById('colorChangeId');
             color.style.color="#26A5B9";
-        const response = await fetch(`https://theroyalblue.pk:5010/api/WishList/add-product-into-user-wishList/${productId}/${userId}` ,
+        const response = await fetch(`` ,
         {
             method: "POST",
             headers: {
@@ -107,7 +107,7 @@ const RPComponent = (props) => {
     async function wishListRemovalFunction(){
         try{
 
-        const responseRemove = await fetch(`https://theroyalblue.pk:5010/api/WishList/remove-product-into-user-wishList/${wishListId}` ,
+        const responseRemove = await fetch(`` ,
         {
             method: "DELETE",
             headers: {

@@ -2,9 +2,10 @@ import React from 'react';
 import './home.css'
 import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Footer from '../favouritePages/Footer';
+import NavbarReal from './NavbarReal';
 import RPComponent from './RPComponent';
 import home_banner from '../../../assets/images/home-banner.png'
+import Footer from '../../footer/Footer';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
   const [loading , setLoading] = useState(true);
   const [progressBar , setProgressBar] = useState(true);
   const [products, setProducts] = useState([]);
+  
   // const [showRecentProducts, setShowRecentProducts] = useState([]);
 //   const [showNewProducts, setShowNewProducts] = useState([]);
 //   const [showUsedProducts, setShowUsedProducts] = useState([]);
@@ -48,7 +50,7 @@ const Home = () => {
 
 //   async function getNewProducts() {
 //     try {
-//       const responseNewProducts = await fetch('https://theroyalblue.pk:5010/api/Home/get-new-Products-for-homePage');
+//       const responseNewProducts = await fetch('');
 //       const dataNewProducts = await responseNewProducts.json();
 //       console.log(dataNewProducts);
 //       setShowNewProducts(dataNewProducts.data.slice(0, 4));
@@ -97,8 +99,7 @@ const Home = () => {
           ) : 
           (
 <> */}
- 
-        {/* <NavbarReal></NavbarReal> */}
+ <NavbarReal ></NavbarReal>
         {/* <div className="row">
                     <div className="col-lg-12 col-md-12 col-10 col-xxl-12">
 
@@ -169,7 +170,7 @@ const Home = () => {
                     </div>
                     </div> */}
 
-        <div className='container' style={{ height: "295px" }} >
+        <div className='container' style={{ height: "295px"  }} >
           <div className='row'>
             <div className='col-lg-12 col-md-12 col-12 col-xxl-12'>
               <img src={home_banner} alt="home-banner" className="homeBannerImage" />
@@ -177,9 +178,9 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='container mt-5 mb-3'>
-          <div className='row'>
-            <div className='col-lg-12 col-md-12 col-sm-12 col-xxl-12'>
+        <div className='container mt-5 mb-3' >
+          <div className='row' >
+            <div className='col-lg-12 col-md-12 col-sm-12 col-xxl-12' >
               <div className='adminDashboardSecondPatti' style={{ width: "", marginLeft: "", backgroundColor: "white" }}>
                 <div className='adminDashboardSecondPattiIn ' style={{ width: "180px" }}>
                   <p>Products</p>
@@ -190,7 +191,7 @@ const Home = () => {
         </div>
 
 
-        <div class="container " style={{ backgroundColor: "" }}>
+        <div class="container " style={{ backgroundColor: "" , marginLeft:'18px'}}>
           <div class="row ">
           {/* style={{ backgroundColor: "" ,display:"",maxWidth:"100%",width:"100%"}} */}
 
@@ -459,7 +460,7 @@ const Home = () => {
 
           </div></div> */}
 
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
 
 
 
