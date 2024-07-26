@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-import './practice.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 
-const RPComponent = (props) => {
+const RPComponent2 = (props) => {
     const navigate = useNavigate();
-    // const  productId  =props.productId;
    
     
     // let token = localStorage.getItem('token');
@@ -40,7 +38,7 @@ const RPComponent = (props) => {
     // }ee2bec88-36d3-40d6-a69d-b87013f05d07
    const [controlFunctions , setControlFunctions] = useState(false);
    const [wishListId , setWishListId] = useState('');
-
+   const [showProducts , setShowProducts] = useState([]);
 //    function mainFunction(){
 //    setControlFunctions(!controlFunctions);
 //    }
@@ -48,8 +46,32 @@ const RPComponent = (props) => {
     // console.log(wishListId);
     const token = localStorage.getItem('token');
     const productId = props.productId;
+    const products = props.products;
     const userId = localStorage.getItem('userid');
 
+    useEffect(() => {
+        setShowProducts(products); 
+      }, [products]); 
+
+    async function deleteProduct(){
+        alert('Refresh Page')
+        let response = await fetch(`http://localhost:8080/post/${productId}` , {
+          method:'DELETE',
+           'Content-Type': 'application/json',
+        });
+        let data = await response.json();
+        if (response.ok) {
+          console.log('User deleted successfully');
+        //   setShowProducts(products.filter(post => post._id !== productId));
+          setShowProducts(prevProducts => 
+            prevProducts.filter(product => product._id !== productId)
+          );
+      
+        } else {
+          console.error('Error deleting user');
+        }
+        console.log(data)
+      }
    
 //    (controlFunctions ? wishListFunction() : wishListRemovalFunction());
   
@@ -160,7 +182,14 @@ const RPComponent = (props) => {
                     </div>
                     {/* mainFunction */}
                 </div>
-               
+                <div className='row'>
+                <div class="col-6" style={{marginLeft:'26px'}}>
+                <button type="button" class="btn btn-info" style={{color:'white'}} onClick={()=> navigate(`/EditProduct/${productId}`)}>Edit</button>
+                    </div>
+                    <div class="col-4">
+                    <button type="button" onClick={deleteProduct} class="btn btn-info" style={{color:'white'}}>Delete</button>
+                    </div>
+                </div>
                 <div className='row ' >
                     <div className="col-4  " >
                         <p className='dimFont' >{props.addedAgo}</p>
@@ -181,4 +210,4 @@ const RPComponent = (props) => {
     )
 }
 
-export default RPComponent
+export default RPComponent2

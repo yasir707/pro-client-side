@@ -12,10 +12,12 @@ import share from '../../../assets/images/share.png';
 
 const ProductView = () => {
   const { productId } = useParams();
+  const [userId , setUserId] = useState([]);
   const [product , setProduct] = useState(null);
   const [productName , setProductName] = useState([]);
   const [userName , setUserName] = useState([]);
   const [title , setTitle] = useState([]);
+  const [price , setPrice] = useState([]);
   const [productSellerName , setProductSellerName] = useState([]);
   const [sellerProfileImage , setSellerProfileImage] = useState([]);
   const [sellerPhoneNo , setSellerPhoneNo] = useState([]);
@@ -40,9 +42,11 @@ async function getAgain(){
   const responseReal = await fetch(`http://localhost:8080/post/${productId}`);
   const dataReal = await responseReal.json();
   console.log(dataReal);
+      setUserId(dataReal)
       setProduct(dataReal);
       setUserName(dataReal);
       setTitle(dataReal);
+      setPrice(dataReal)
       setDescription(dataReal);
 
 }
@@ -153,6 +157,20 @@ async function relatedProductsFunction(){
    
   </div>
 </div>
+
+<div class="container  my-2" >
+  <div class="row" >
+    <div class="col" >
+      Price:
+    </div>
+    <div class="col " style={{display:"flex",justifyContent:"flex-end"}}>
+        
+        <h5 >{price.price}</h5>
+
+    </div>
+   
+  </div>
+</div>
       
         <p class="card-text"><small class="text-body-secondary">
         {/* <div style={{width:"20%",height:"40px",marginLeft:"13px"}}>
@@ -160,9 +178,9 @@ async function relatedProductsFunction(){
         </small></p>
       </div>
       <hr/>
-      <div style={{width:"25%",height:"40px",float:"right",marginBottom:"50px"}}>
-      <img src={share} alt="icon" style={{marginLeft:"15px"}} />
-      <img src={heart} alt="icon" style={{marginLeft:"15px"}} />
+      <div style={{width:"42%",height:"40px",float:"right",marginBottom:"50px"}}>
+        <Link to={`/SellerProfile/${userId.userId}`}><p>View Seller Profile</p></Link>
+   
       </div>
     </div>
   </div>

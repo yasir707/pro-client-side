@@ -1,14 +1,13 @@
 import React from 'react';
-import './home.css'
+import './seeYourPosts.css'
 import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavbarReal from './NavbarReal';
-import RPComponent from './RPComponent';
-import home_banner from '../../../assets/images/home-banner.png'
+import NavbarReal from '../../user/home_pages/NavbarReal';
+import RPComponent2 from './RPComponent2';
 import Footer from '../../footer/Footer';
 
 
-const Home = () => {
+const SeeYourPosts = () => {
   let navigate = useNavigate();
   const [loading , setLoading] = useState(true);
   const [progressBar , setProgressBar] = useState(true);
@@ -28,8 +27,18 @@ const Home = () => {
 
 
   async function getData() {
+    const token = localStorage.getItem('token');
     try {
-      const response = await fetch('http://localhost:8080/posts');
+      const response = await fetch('http://localhost:8080/post',
+            
+              {
+                  method: 'GET',
+                  headers: {
+                      'Content-Type': 'application/json',
+                       'Authorization': `Bearer ${token}`
+                  },
+              }
+      );
 
       const data = await response.json();
     //   console.log(data.data[0].categoryName);
@@ -170,20 +179,14 @@ const Home = () => {
                     </div>
                     </div> */}
 
-        <div className='container' style={{ height: "295px"  }} >
-          <div className='row'>
-            <div className='col-lg-12 col-md-12 col-12 col-xxl-12'>
-              <img src={home_banner} alt="home-banner" className="homeBannerImage" />
-            </div>
-          </div>
-        </div>
+    
 
         <div className='container mt-5 mb-3' >
           <div className='row' >
             <div className='col-lg-12 col-md-12 col-sm-12 col-xxl-12' >
               <div className='adminDashboardSecondPatti' style={{ width: "", marginLeft: "", backgroundColor: "white" }}>
                 <div className='adminDashboardSecondPattiIn ' style={{ width: "180px" }}>
-                  <p>Products</p>
+                  <p>Your Posts</p>
                 </div>
               </div>
             </div>
@@ -202,7 +205,8 @@ const Home = () => {
     return (
         <div className="col-lg-3 col-md-6 col-sm-12" key={product._id}>
             <div className="col-lg-3 col-md-6 col-sm-12 product" style={{ backgroundColor: "", marginBottom: "20px", display: "" }}>
-                <RPComponent
+                <RPComponent2
+                    products={products}
                     productId={product._id}
                     img={imageUrl}
                     title={product.title}
@@ -482,5 +486,5 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+export default SeeYourPosts;
 
