@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './sellerProfile.css';
 import SellerProfileComponent from './SellerProfileComponent';
@@ -9,18 +9,22 @@ import NavbarReal from '../home_pages/NavbarReal';
 
 
 
+
 const SellerProfile = () => {
     const { userId } = useParams();
-    const [showImages , setShowImages] = useState([]);
-    // const [sellerProfileImage , setSellerProfileImage] = useState([]);
-    const [sellerName , setSellerName] = useState([]);
-    
+    const [showImages, setShowImages] = useState([]);
+    const [sellerName, setSellerName] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [searchText, setSearchText] = useState("");
 
-  
 
-    useEffect(()=>{
+    useEffect(() => {
         showSellerProfileData();
-    },[userId]);
+    }, [userId]);
+
+    useEffect(() => {
+        filterProducts();
+      }, [searchText, showImages]);
 
     async function showSellerProfileData() {
         try {
@@ -32,9 +36,10 @@ const SellerProfile = () => {
             console.log(data);
 
             if (data && data.length > 0) {
-                // setSellerProfileImage(data[0].sellerProfileImage);
-                setSellerName(data[0].user); 
+                setSellerName(data[0].user);
                 setShowImages(data);
+                setFilteredProducts(data);
+
             } else {
                 console.log('No data found for user');
             }
@@ -43,72 +48,77 @@ const SellerProfile = () => {
         }
     };
 
- 
+    function filterProducts() {
+        if (searchText.trim() === "") {
+          setFilteredProducts(showImages);
+        } else {
+          const filtered = showImages.filter(product => {
+            const lowercasedSearchText = searchText.toLowerCase();
+    
+            return (
+              product.title.toLowerCase().includes(lowercasedSearchText) ||
+              (product.user && product.user.toLowerCase().includes(lowercasedSearchText)) ||
+              (product.price && product.price.toString().includes(lowercasedSearchText)) ||
+              (product.location && product.location.toLowerCase().includes(lowercasedSearchText))
+            );
+          });
+    
+          setFilteredProducts(filtered);
+        }
+      }
 
-  return (
-    <>
-      <NavbarReal></NavbarReal>
 
-        {/* <Navbar></Navbar>
-        <Navbar2></Navbar2> */}
+    return (
+        <>
+            <NavbarReal  searchText={searchText} setSearchText={setSearchText}></NavbarReal>
 
-        
-        <div className='sellerProfileMainDiv'>
-            <div className='container' >
-                <div className='row' >
-                    <div className='col-lg-3 col-md-3 col-sm-12 '  >
+            <div className='sellerProfileMainDiv'>
+                <div className='container' >
+                    <div className='row' >
+                        {/* <div className='col-lg-3 col-md-3 col-sm-12 '  >
                         <div className='firstCol'>
                             <div className='firstColInside'>
-                                {/* <div className='imgDiv'>
-                                    
-                                    
-                                    <img src={sellerProfileImage} 
-                                    alt="sellerProfileImg" style={{width:"10rem" , marginLeft:"25%" , borderRadius:"50%",height:"10rem"}} />
-                                    <p className='p1'>Share the seller profile link</p>
-                                    <span className='p2'>Seller phone no:</span>
-                                    <span className='p3'>{sellerPhoneNo}</span>
-                                </div> */}
+
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
 
 
-                    <div className='col-lg-9 col-md-9 col-sm-12' style={{backgroundColor:""}}>
-                        <div className='row' style={{backgroundColor:""}}>
-                        <Patti title={sellerName}></Patti>
-                    {/* <div className='publish'>Published Ad 12</div> */}
+                        <div className='col-lg-12 col-md-12 col-sm-12' style={{ backgroundColor: "" }}>
+                            <div className='row' style={{ backgroundColor: "" }}>
+                                <Patti title={sellerName}></Patti>
 
 
-                    {showImages.map((values) => {
-    const imageUrl = values.image ? `http://localhost:8080/${values.image.replace(/\\/g, '/')}` : 'placeholder.png';
-    return (
-        <SellerProfileComponent
-            key={values._id}
-            productId={values._id}
-            img={imageUrl} 
-            title={values.title}
-            price={values.price}
-            imgHeart={values.imgHeart}
-            location={values.location}
-        />
-    );
-})}
+                                {filteredProducts.map((values) => {
+                                    const imageUrl = values.image ? `http://localhost:8080/${values.image.replace(/\\/g, '/')}` : 'placeholder.png';
+                                    return (
+                                        <SellerProfileComponent
+                                            key={values._id}
+                                            productId={values._id}
+                                            img={imageUrl}
+                                            title={values.title}
+                                            price={values.price}
+                                            imgHeart={values.imgHeart}
+                                            location={values.location}
+                                        />
+                                    );
+                                })}
 
 
-                           
+
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-        </div>   
 
-        <Footer></Footer>
-        
+            <Footer></Footer>
+
 
         </>
-  )
+    )
 }
 
 export default SellerProfile

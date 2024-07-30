@@ -1,22 +1,24 @@
 .product {
-    /* margin-bottom: 20px; */
-    margin: 0;
-    padding: 0;
-    margin-left: 28px;
-    background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-  }
-  .product.col-lg-3 {
-    width: 100%;
-  }
-  .product img {
-    width: 100%;
-    max-width: 100%;
-    height: 250px;  
-    /* object-fit: cover; */
-  }
-  
-  .practicePriceDiv p{
+  /* margin-bottom: 20px; */
+  margin: 0;
+  padding: 0;
+  margin-left: 28px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.product.col-lg-3 {
+  width: 100%;
+}
+
+.product img {
+  width: 100%;
+  max-width: 100%;
+  height: 250px;
+  /* object-fit: cover; */
+}
+
+.practicePriceDiv p {
   display: inline-block;
   font-family: 'Roboto';
   font-style: normal;
@@ -24,85 +26,82 @@
   font-size: 24px;
   line-height: 28px;
   color: #000000;
-  }
-  .practiceP2{
-    margin-left: 5px;
-  }
-  .heartIconPractice{
-    display: inline-block;
-  }
-  .dimFont{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: rgba(0, 0, 0, 0.25);
-    margin-left: 20px;
-  }
-  .practiceCol1{
-    height: 300px;
-  }
-  .practiceImgClass{
-    max-width:100%;
-    height:auto
+}
+
+.practiceP2 {
+  margin-left: 5px;
+}
+
+.heartIconPractice {
+  display: inline-block;
+}
+
+.dimFont {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.25);
+  margin-left: 20px;
+}
+
+.practiceCol1 {
+  height: 300px;
+}
+
+.practiceImgClass {
+  max-width: 100%;
+  height: auto
     /* height: 200px; */
-  
+
+}
+
+.priceWIdth {
+  width: 100%;
+  background-color: gray;
+}
+
+.practiceProductTitle h5 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+
+
+@media screen and (max-width:768px) {
+  .product {
+    /* width:50%; */
+    /* background-color: orangered; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .priceWIdth{
-    width:100%;
-    background-color: gray;
+}
+
+@media (max-width: 992px) {
+  .product.col-md-6 {
+    width: 40%;
   }
-  .practiceProductTitle h5{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-    color: #000000;
+
+  .product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  
-  
-  @media screen and (max-width:768px){
-    .product{
-      /* width:50%; */
-      /* background-color: orangered; */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+}
+
+@media (max-width: 768px) {
+  .product.col-sm-12 {
+    width: 100%;
   }
-  
-  @media (max-width: 992px) {
-    .product.col-md-6 {
-      width: 40%;
-    }
-    .product{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+
+  .product img {
+    width: auto;
   }
-  
-  /* Styles for col-sm-12 */
-  @media (max-width: 768px) {
-    .product.col-sm-12 {
-      width: 100%;
-    }
-    .product img {
-      width:auto;
-      /* width: 100%;
-      max-width: 100%;
-      height: 250px;  */
-    }
-  }
-  
-  
-  
-  
-  
-  
-  
-  
+}

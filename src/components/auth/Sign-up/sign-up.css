@@ -1,27 +1,30 @@
-.signUpBackGroundImage{
-    width:100%;
-    height:800px;
+.signUpBackGroundImage {
+    width: 100%;
+    height: 800px;
     background-image: url('../../../assets//images//backGround.png');
     background-size: cover;
-    background-position:center;
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     /* overflow: auto;  */
 }
-.signUpImageLogoAgain{
+
+.signUpImageLogoAgain {
     max-width: 70%;
     height: auto;
     margin-top: 70px;
     margin-left: 70px;
 }
-.welcomeToAgain{   
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 28px;
-color: #000000;
+
+.welcomeToAgain {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
 }
-.welcomeToAgain2{
+
+.welcomeToAgain2 {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -31,7 +34,7 @@ color: #000000;
     margin-left: 120px;
 }
 
-.welcomeBack2{
+.welcomeBack2 {
     width: 60%;
     height: 8%;
     /* background-color: cadetblue; */
@@ -39,7 +42,8 @@ color: #000000;
     top: 3%;
     left: 40%;
 }
-.welcomeBack2 p{
+
+.welcomeBack2 p {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -48,16 +52,18 @@ color: #000000;
     color: #000000;
 }
 
-@media screen and (max-width:992px){
-    .pSignUpAgain{
-        margin-bottom:40px;
+@media screen and (max-width:992px) {
+    .pSignUpAgain {
+        margin-bottom: 40px;
     }
-    .signUpBackGroundImage{
+
+    .signUpBackGroundImage {
         display: none;
     }
 }
-@media screen and (max-width:768px){
-    .pSignUpAgain{
+
+@media screen and (max-width:768px) {
+    .pSignUpAgain {
         margin-bottom: 25px;
     }
 }

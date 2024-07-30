@@ -17,11 +17,11 @@ const SignUp = () => {
   let userData;
   function submitSignUp(e) {
     e.preventDefault();
-    if (password.length<3) {
+    if (password.length < 3) {
       alert("Password should consist of at least 3 letters!");
     } else {
       userData = {
-        name:name,
+        name: name,
         email: email,
         password: password
       };
@@ -98,10 +98,7 @@ const SignUp = () => {
                         <div style={{ width: "80%", height: "10%", marginLeft: "10%", backgroundColor: "" }}>
 
                           <div className="row">
-                            {/* <div className="col">
-                              <label className="form-label productTitleForm" htmlFor="firstNameId" style={{ color: "#26A5B9" }}>First Name</label>
-                              <input type="text" className="form-control" required aria-label="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)} id="firstNameId" autoComplete="off" />
-                            </div> */}
+
                             <div className="col">
                               <label className="form-label productTitleForm" htmlFor="userNameId" style={{ color: "#26A5B9" }}>Name</label>
                               <input type="text" className="form-control" required aria-label="Last name"
@@ -129,18 +126,14 @@ const SignUp = () => {
                           <label htmlFor="exampleInputPassword1" className="form-label productTitleForm" style={{ color: "#26A5B9" }}>Password</label>
                           <input type={showPassword ? 'text' : 'password'} className="form-control borderBottom" id="exampleInputPassword1" required
                             value={password} onChange={(e) => setPassword(e.target.value)}
-                            autoComplete="new-password" name='password'/>
+                            autoComplete="new-password" name='password' />
                           <img src={eye2} style={{ position: "relative", left: "90%", bottom: "35px" }} alt="emailIcon" onClick={showPasswordFunction} />
                         </div>
                       </div>
 
                       <div className="mt-3">
                         <div style={{ width: "80%", height: "10%", marginLeft: "10%", backgroundColor: "" }}>
-                          {/* <label htmlFor="exampleInputPassword2" className="form-label productTitleForm" style={{ color: "#26A5B9" }}>Confirm Password</label>
-                          <input type={showConfirmPassword ? 'text' : 'password'} className="form-control borderBottom" id="exampleInputPassword2" required
-                            value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
-                            autoComplete="new-password" />
-                          <img src={eye2} style={{ position: "relative", left: "90%", bottom: "35px" }} alt="emailIcon" onClick={showConfirmPasswordFunction} /> */}
+
                           <div style={{ marginTop: "", display: "flex", backgroundColor: "", justifyContent: "center" }}>
                             <button type="submit" className="btn" style={{ backgroundColor: "#26A5B9", color: "white" }}>Sign up</button>
                           </div>

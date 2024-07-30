@@ -3,16 +3,16 @@ import './sign-in.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import logo from '../../../assets/images/mainLogo.png'
-import messageIcon from  '../../../assets/images/messageIcon.png'
+import messageIcon from '../../../assets/images/messageIcon.png'
 import eye2 from '../../../assets/images/eye2.png'
 
 const SignIn = () => {
     const navigate = useNavigate();
 
-    const [email , setEmail] = useState("");
-    const [password , setPassword] = useState("");
-    const [showPassword , setShowPassword] = useState(false);
-    const [showForgetText , setShowForgetText] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showForgetText, setShowForgetText] = useState(false);
 
     const logInFunction = (e) => {
         e.preventDefault();
@@ -78,7 +78,6 @@ const SignIn = () => {
                         <div className='container' style={{ marginTop: "40px" }}>
                             <div className='row'>
                                 <div className='col-12'>
-                                    {/* <p className='welcomeToAgain'>Welcome Back</p> */}
                                 </div>
                             </div>
                         </div>
@@ -86,16 +85,16 @@ const SignIn = () => {
                             <div className='row'>
                                 <div className='col-12'>
                                     <div style={{ height: "500px" }}>
-                                    <div className='pattiA'>
-                      <div className='patti1A' style={{ backgroundColor: "" }}><p style={{ marginLeft: "5%", marginTop: "10%" }} className='pSignUpAgain'>Sign in now</p></div>
-                      <div className='patti2A'></div>
-                    </div>
+                                        <div className='pattiA'>
+                                            <div className='patti1A' style={{ backgroundColor: "" }}><p style={{ marginLeft: "5%", marginTop: "10%" }} className='pSignUpAgain'>Sign in now</p></div>
+                                            <div className='patti2A'></div>
+                                        </div>
                                         <form onSubmit={logInFunction} autoComplete="off">
                                             <div className="mt-3">
                                                 <div style={{ width: "80%", marginLeft: "10%" }}>
                                                     <label className="form-label productTitleForm" style={{ color: "#26A5B9" }}>E-mail</label>
                                                     <input type="email" className="form-control borderBottom" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="new-email" name='email' />
-                                                    <img src={messageIcon} style={{ position: "relative", left: "90%", bottom: "35px" }} alt="emailIcon"/>
+                                                    <img src={messageIcon} style={{ position: "relative", left: "90%", bottom: "35px" }} alt="emailIcon" />
                                                 </div>
                                             </div>
                                             <div className="mt-3">

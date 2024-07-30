@@ -1,142 +1,132 @@
-@media screen and (max-width: 1210px) { 
-    /* .signInCont{
-      background-color: black;
-      display: none;
-    }
-    .signInContIn{
-     
-      position: absolute;
-      right:20%;
-  
-      top:10%;
-  } */
-  
-  
-   }
-  
-  .signInContM{
-      width: 100%;
-      height: 160vh;
-      /* height: 900px; */
-      float: left;
-      /* background-color: blue; */
-  }
-  .signInCont{
-      width: 100%;
-      height: 100vh;
-      /* height: 900px; */
-      float: left;
-      background-image: url('../../../assets//images//backGround.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-  }
-  .signInContIn{
-      /* width: 30%; */
-      height: 670px;
-      /* background-color: brown; */
-      /* left:68%; */
-      /* position: absolute; */
-      /* top:10%; */
-  }
-  .signInContImg{
-      width: 75%;
-      height: 20%;
-      /* background-color: burlywood; */
-      position: relative;
-      top:3%;
-      left: 15%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  .welcomeBack{
-      width: 60%;
-      height: 8%;
-      /* background-color: cadetblue; */
-      position: relative;
-      top: 5%;
-      left: 5%;
-  }
-  .welcomeBack p{
-      position: relative;
-      top:22%;
-      left: 15%;
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 28px;
-      color: #000000;
-  
-  }
-  
-  .pattiA{
-      width: 100%;
-      height: 44px;
-      /* background-color: burlywood; */
-  }
-  .patti1A{
-      width: 60%;
-      height: 35px;
-      background: #26A5B9;
-      clip-path: polygon(x1 y1,x2 y2,x3 y3,x4 y4);
-      clip-path: polygon(0 0, 81% 0, 100% 100%,0% 100%);
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 28px;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-  }
-  .patti2A{
-      width: 100%;
-      height: 8px;
-      background-color: #26A5B9;
-  }
-  .borderBottom{
-      border:none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-      
-  }
-  .forget{
-      width: 20%;
-      height: 12%;
-      /* background-color: chartreuse; */
-      position: relative;
-      left: 80%;
-      bottom:25px;
-      margin-top: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #26A5B9;   
-  }
-  .lastSignInDiv{
-      width: 60%;
-      height: 50px;
-      /* background-color: darkblue; */
-      position: relative;
-      left:22%;
-      top:12px;
-      display:flex;
-  }
-  .lastSignInDivA{
-      width: 60%;
-      height: 50px;
-      /* background-color: darkgreen; */
-      display: flex;
-      align-items: center;
-  }
-  .lastSignInDivB{
-      width: 40%;
-      height: 50px;
-      /* background-color:cornflowerblue; */
-      display: flex;
-      align-items: center;
-      color: #26A5B9;
-  }
-  
-  
-  
+.signInContM {
+    width: 100%;
+    height: 160vh;
+    float: left;
+    /* background-color: blue; */
+}
+
+.signInCont {
+    width: 100%;
+    height: 100vh;
+    float: left;
+    background-image: url('../../../assets//images//backGround.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signInContIn {
+    height: 670px;
+    /* background-color: brown; */
+    /* left:68%; */
+    /* position: absolute; */
+    /* top:10%; */
+}
+
+.signInContImg {
+    width: 75%;
+    height: 20%;
+    /* background-color: burlywood; */
+    position: relative;
+    top: 3%;
+    left: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomeBack {
+    width: 60%;
+    height: 8%;
+    /* background-color: cadetblue; */
+    position: relative;
+    top: 5%;
+    left: 5%;
+}
+
+.welcomeBack p {
+    position: relative;
+    top: 22%;
+    left: 15%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+
+}
+
+.pattiA {
+    width: 100%;
+    height: 44px;
+    /* background-color: burlywood; */
+}
+
+.patti1A {
+    width: 60%;
+    height: 35px;
+    background: #26A5B9;
+    clip-path: polygon(x1 y1, x2 y2, x3 y3, x4 y4);
+    clip-path: polygon(0 0, 81% 0, 100% 100%, 0% 100%);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+.patti2A {
+    width: 100%;
+    height: 8px;
+    background-color: #26A5B9;
+}
+
+.borderBottom {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+}
+
+.forget {
+    width: 20%;
+    height: 12%;
+    /* background-color: chartreuse; */
+    position: relative;
+    left: 80%;
+    bottom: 25px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #26A5B9;
+}
+
+.lastSignInDiv {
+    width: 60%;
+    height: 50px;
+    /* background-color: darkblue; */
+    position: relative;
+    left: 22%;
+    top: 12px;
+    display: flex;
+}
+
+.lastSignInDivA {
+    width: 60%;
+    height: 50px;
+    /* background-color: darkgreen; */
+    display: flex;
+    align-items: center;
+}
+
+.lastSignInDivB {
+    width: 40%;
+    height: 50px;
+    /* background-color:cornflowerblue; */
+    display: flex;
+    align-items: center;
+    color: #26A5B9;
+}

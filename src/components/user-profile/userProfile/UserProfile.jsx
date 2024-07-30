@@ -1,46 +1,14 @@
 import React, { useEffect } from 'react';
-// import '../UserProductsPages/userProducts.css';
 import { useState } from 'react';
-// import axios from 'axios';
-import { useContext } from 'react';
-// import MyFirstContext from '../../../../src/MyFirstContext';
 import sellerProfile from '../../../assets/images/sellerProfile.png';
-import productsIcon from '../../../assets/images/productsIcon.png';
-import peoplesIcon from '../../../assets/images/peoplesIcon.png';
-import signOut from '../../../assets/images/signOut.png';
-import mainLogo from '../../../assets/images/mainLogo.png';
-import upload2 from '../../../assets/images/upload2.png';
-// import { ProductContext } from '../UserProductsPages/UserProducts';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import eye2 from '../../../assets/images/eye2.png';
 
 const UserProfile = (props) => {
     const [field , setField] = useState({name:'',email:'',password:''});
     const [showPassword , setShowPassword] = useState(false);
-    const [showForgetText , setShowForgetText] = useState(false);
 
-    const [showName , setShowName] = useState('');
-    const [showDescription , setShowDescription] = useState('');
-    const [showImage , setShowImage] = useState([]);
-    const [showPrice , setShowPrice] = useState(0.0);
-    const [categories , setCategories] = useState([]);
-    const [howYearOld , setHowYearOld] = useState('');
-    const [selectedCategoryId, setSelectedCategoryId] = useState('');
-    const [subCategories , setSubCategories] = useState([]);
-    const [showLocation , setShowLocation] = useState('');
-    const [provinces , setProvinces] = useState([]);
-    const [selectedProvinceId, setSelectedProvinceId] = useState('');
-    const [cities , setCities] = useState([]);
-    const [selectedImages, setSelectedImages] = useState([]);
-    const [isOld, setIsOld] = useState(false);
-    const [categoryId , setCategoryId] = useState('')
-    const [subCategoryId , setSubCategoryId] = useState('');
     const navigate = useNavigate();
-    // const [productId , setProductId] = useState([]);
     const token = localStorage.getItem('token');
-    // let productId = useContext(MyFirstContext);
-    // console.log(productId)
 
     const { productId } = useParams();
     const userId = localStorage.getItem('userId');
@@ -73,30 +41,31 @@ const UserProfile = (props) => {
           let data = await response.json();
           setField({
             name: data.name,
-            email: data.email,
-            password: ''  // Initialize password as an empty string
-        });
+            email: data.email
+                  });
           console.log(data)
       }
       async function handleUpdate(e){
         e.preventDefault();
-        const single_data = new FormData();
-        single_data.append('name', field.name);
-        single_data.append('email', field.email);
-        single_data.append('password', field.password);
+      
+        const myData = {
+          name: field.name,
+          email: field.email
+      };
         
         let response = await fetch(`http://localhost:8080/profile/${userId}` ,
             
         {
-            method: 'POST',
+            method: 'PATCH',
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json' 
             },
-            body:single_data
+            body: JSON.stringify(myData)
         }
         );
         
-        console.log(single_data)
+        console.log(myData)
         if (response.ok) {
             let data = await response.json();
         console.log('User added successfully');
@@ -112,195 +81,30 @@ const UserProfile = (props) => {
     const showPasswordFunction = () => {
         setShowPassword(!showPassword);
     };
-    // ----
 
 
 
 
 
- async function editProducts(){
-    
-    const responseEdit = await fetch(``,{
-        method : "GET",
-        accept : '*/*',
-        Authorization : `Bearer ${token}`
-    });
-        const dataEdit = await responseEdit.json();
-        console.log(dataEdit)
-        setShowName(dataEdit.data)
-        setShowDescription(dataEdit.data)
-        setShowPrice(dataEdit.data)
-        setHowYearOld(dataEdit.data)
-        setShowImage(dataEdit.data)
-        setShowLocation(dataEdit.data)
- }
+
 
 
     
-  async function getCategories(){
-    const response = await fetch('');
-        const data = await response.json();
-        setCategories(data.data);
-        setCategoryId(data.data[0].categoryId)
-        // setSubCategoryId(data.data[0].categoryId);
-        console.log(data);
-  }
 
-    async function getSubCategories(categoryId){
-    const responseSubC = await fetch(``);
-        const dataSubC = await responseSubC.json();
-        console.log(dataSubC)
-        setSubCategories(dataSubC.data)
-        setSelectedCategoryId(categoryId);
-        setSubCategoryId(dataSubC.data[0].subCategoryId);
-        console.log(dataSubC.data[0].subCategoryId)
-  }
 
-  async function getProvinces(){
-    const responseProvince = await fetch('');
-        const dataProvince = await responseProvince.json();
-        setProvinces(dataProvince.data);
-  }
+
+
    
   
-  async function getCities(provinceId){
-    const responseCity = await fetch(``);
-        const dataCity = await responseCity.json();
-        setCities(dataCity.data)
-        setSelectedProvinceId(provinceId);
-  }
 
-  useEffect(()=>{
-    // getData();
-    editProducts();
-    getCategories();
-    getProvinces();
-  },[])
+ 
 
-  function handleFile(){
-    const file = document.getElementById('filesInput');
-    file.click();
-  }
+ 
 
-  function handleFileInputChange(event){
-
-  const files = event.target.files;
-
-    if (files && files.length > 0) {
-        const reader = new FileReader();
-        const imageArray = [];
-    
-        reader.onload = () => {
-          const imageDataUrl = reader.result;
-          const imageBlob = dataURLtoBlob(imageDataUrl);
-    
-          // imageArray.push(reader.result);
-          imageArray.push(imageBlob);
-    
-    
-          if (imageArray.length === files.length) {
-            setSelectedImages(imageArray);
-          } else {
-            reader.readAsDataURL(files[imageArray.length]);
-          }
-        };
-    
-        reader.readAsDataURL(files[0]);
-      }
-    
-      
-    const dataURLtoBlob = (dataURL) => {
-      const parts = dataURL.split(',');
-      const contentType = parts[0].match(/:(.*?);/)[1];
-      const b64Data = atob(parts[1]);
-      const arrayBuffer = new ArrayBuffer(b64Data.length);
-      const uint8Array = new Uint8Array(arrayBuffer);
-    
-      for (let i = 0; i < b64Data.length; i++) {
-        uint8Array[i] = b64Data.charCodeAt(i);
-      }
-    
-      return new Blob([arrayBuffer], { type: contentType });
-    };
-  }
-
-  
-  const handleConditionChange = (event) => {
-    setIsOld(event.target.value === "option2");
-  };
-
-
-  // async function getData() {
-  //   try {
-  //     const response = await fetch('',{
-  //       method : "GET" ,
-  //       headers : {
-  //           accept : '*/*',
-  //           Authorization : `Bearer ${token}`
-  //       }
-  //     });
-  //     const data = await response.json();
-  //     console.log(data.data[0].productId);
-  //     // productId(data.data[0].productId);
-  //   }
-  //   catch(error){
-  //       console.log(error , 'Error while getting user Products.')
-  //   }
-  //   }
+ 
 
 
 
-  async function saveChanges(e){
-    e.preventDefault();
-    // debugger
-    const formData = new FormData();
-          
-    formData.append('subCategoryId', subCategoryId );
-    console.log(subCategoryId)
-    formData.append('name', showName);
-    console.log(showName)
-    formData.append('description', showDescription);
-    console.log(showDescription)
-    formData.append('isOld', isOld);
-    console.log(isOld)
-    formData.append('howYearOld',  parseInt(howYearOld));
-    console.log(howYearOld)
-    formData.append('price', parseFloat(showPrice));
-    console.log(showPrice)
-    // const location = `${provinces} | ${cities}`;
-    formData.append('location', showLocation);
-    console.log(showLocation)
-    // console.log(selectedProvince2)
-    // formData.append('Location', selectedProvince);
-    // console.log(selectedProvince)
-    // formData.append('ProductImages', selectedImage);
-    // console.log(selectedImage)
-    // selectedImages.forEach((image, index) => {
-    //   formData.append('productImages', image, `image${index}`);
-    //   // formData.append(`ProductImages[${index}]`, image);
-    //   console.log(image)
-    // });
-    // formData.append('SubCategoryId', categoryId);
-    // console.log(categoryId)
-
-    // formData.append('productImages' , [ '' ])
-    
-    // console.log("formData is all ",formData)
-    // const responseChanges = await axios.put(``, formData , {
-    //     headers : {
-    //     accept : '*/*',
-    //     Authorization : `Bearer ${token}`,
-    //     'Content-Type' : 'application/json'}        
-    // });
-    //     // const dataChanges = await responseChanges.json();
-    //     console.log(responseChanges)
-        
- }
-
- function logOut(){
-  localStorage.removeItem('userId');
-  navigate('/SignIn')
- }
   
 
   return (
@@ -314,85 +118,12 @@ const UserProfile = (props) => {
 
 
 <div className='row'>
-    {/* <div className='col-lg-2 col-md-2 col-sm-12 col-xxl-2 flexResp'>
-        <div className="flexResp2" style={{height:"1170px",backgroundColor:"#26A5B9"}}>
-            
-        <div className='flex1'>
-                            <div className='imgFlexDiv'>
-                              <img src={sellerProfile} className="img-fluid flex-resp3" style={{ width:"50%" }} alt="sellerProfile" />
-                            </div>
-                            
-                            <div className='imgFlexDiv' style={{width:"50%",display:"flex",justifyContent:"flex-start"}}>
-                             <p style={{color:"white"}}>FA Creation</p>
-                            </div>
-                            
-                            </div>
-
-        <div className='flex1 mt-2 flex-column' style={{height:"10%"}}>
-            <div className='OneOfThreeDiv' style={{backgroundColor:"white"}}>
-                <div className='OneOfThreeDivImg' >
-                    <img src={productsIcon} alt="productsIcon" className='img-fluid' style={{height:"60%"}} />
-                </div>
-
-                <div className='OneOfThreeDivText' >
-                <p style={{color:"" ,marginTop:"8px"}}>
-                <Link to="/UserProducts" style={{textDecoration:"none" ,color:"#26A5B9"}}>
-                  Products
-                  </Link>
-                  </p>
-            </div>
-
-            </div>
-
-
-            <div className='OneOfThreeDiv'>
-                <div className='OneOfThreeDivImg'>
-                    <img src={peoplesIcon} alt="productsIcon" className='img-fluid' style={{height:"60%"}} />
-                </div>
-
-                <div className='OneOfThreeDivText'>
-                <p style={{color:"white"}}>
-                <Link to="/UserProfile" style={{textDecoration:"none" ,color:"white"}}>
-                  Profile
-                  </Link>
-                  </p>
-                 
-            </div>
-            
-            </div>
-
-
-            <div className='OneOfThreeDiv' onClick={logOut}>
-                <div className='OneOfThreeDivImg'>
-                    <img src={signOut} alt="productsIcon" className='img-fluid' style={{height:"60%"}} />
-                </div>
-
-                <div className='OneOfThreeDivText'>
-                <p style={{color:"white"}}>Sign out</p>
-            </div>
-
-            </div>
-
-
-           
-        </div>
-
-
-        
-
-
-                            
-
-
-            </div>
-    </div> */}
+ 
 
     <div className='col-lg-10 col-md-10 col-sm-12 col-xxl-10'>
     <div style={{height:"1000px",backgroundColor:"" ,marginLeft:'150px'}}>
         <div className='userProfileCol2Container'>
-        {/* <div className='userProfileCol2Text'>
-            <p>Edit Your Product</p>
-        </div> */}
+       
 
         <div className='container mt-5 mb-3' >
           <div className='row' >
@@ -406,11 +137,7 @@ const UserProfile = (props) => {
           </div>
         </div>
 
-        {/* <div className='userProfileCol2Logo'>
-            <img src={mainLogo} className="img-fluid" style={{width:"70%"}} alt="mainLogo" />
-        </div> */}
-
-     
+      
 
 <div className='addProductsFormCont'>
     <div className='container' style={{backgroundColor:""}}>
@@ -420,8 +147,7 @@ const UserProfile = (props) => {
 
                 <form  onSubmit={handleUpdate}>
   <div class="mb-4">
-    {/* <label for="exampleInputText1" class="form-label productTitleForm">Product Title</label>
-    <input type="text" class="form-control"  id="exampleInputText1" value={showName.name} onChange={(e)=>setShowName(e.target.value)} /> */}
+   
     <label for="exampleInputText1" class="form-label productTitleForm">UserName:</label>
     <input type="text" class="form-control" id="exampleInputText1"  value={field.name} name='name' onChange={handleChange} style={{marginTop:'10px' , border:'1px solid black'}}/>
   </div>
@@ -430,17 +156,10 @@ const UserProfile = (props) => {
 
 
 
-{/* <label for="exampleFormControlPrice1" class="form-label productTitleForm">Price</label>
-    <input type="text" class="form-control"  id="exampleFormControlPrice1" aria-label="Last name" value={showPrice.price} onChange={(e)=>setShowPrice(e.target.value)} /> */}
+
 
     <label for="exampleFormControlPrice1" class="form-label productTitleForm">Email</label>
     <input type="email" class="form-control" id="exampleFormControlPrice1"  value={field.email} name='email' onChange={handleChange} style={{marginTop:'10px' , border:'1px solid black'}}/>
-
-    <label for="exampleFormControlPrice1" class="form-label productTitleForm" style={{marginTop:'16px'}}>Password:</label>
-    {/* <input type="text" class="form-control"  id="exampleFormControlPrice1" aria-label="Last name" value={price} onChange={(e)=>{setPrice(e.target.value)}} /> */}
-    {/* <input type="password" class="form-control" id="exampleFormControlPrice1"  value={field.password} name='password' onChange={handleChange} style={{marginTop:'10px' , border:'1px solid black'}}/> */}
-    <input type={showPassword ? "text" : "password"} className="form-control borderBottom" value={field.password} onChange={handleChange} autoComplete="new-password" onFocus={() => setShowForgetText(!showForgetText)} name='password' />
-    <img src={eye2} style={{ display: showForgetText ? 'block' : 'none', position: "relative", left: "83%", bottom: "28px" }} alt="eyeIcon" onClick={showPasswordFunction} />
 
 
 
@@ -458,11 +177,6 @@ const UserProfile = (props) => {
 
 
 
-
-
-
-
-
         </div>
     </div>
 
@@ -477,8 +191,6 @@ const UserProfile = (props) => {
 
 
     </div>
-
-
 
 
    </>
